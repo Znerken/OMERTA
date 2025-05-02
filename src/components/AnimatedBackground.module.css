@@ -1,0 +1,106 @@
+.backgroundWrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  opacity: 0.6;
+  transform: scale(1.1);
+  filter: blur(2px);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.imageContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.smokeContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.smoke,
+.smokeDelayed,
+.smokeSlow {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/noise.png');
+  opacity: 0.02;
+  mix-blend-mode: overlay;
+}
+
+.smoke {
+  animation: smoke 20s ease-in-out infinite;
+}
+
+.smokeDelayed {
+  animation: smoke 20s ease-in-out infinite 7s;
+}
+
+.smokeSlow {
+  opacity: 0.015;
+  animation: smoke 30s ease-in-out infinite 3s;
+}
+
+@keyframes float {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.02) translate(5px, 5px);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes overlay {
+  0% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes smoke {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.0);
+  }
+  33% {
+    transform: translate3d(1%, 1%, 0) scale(1.1);
+  }
+  66% {
+    transform: translate3d(-1%, -1%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.0);
+  }
+}
+
+.background {
+  pointer-events: none;
+  opacity: 0.8;
+  filter: blur(1px);
+}

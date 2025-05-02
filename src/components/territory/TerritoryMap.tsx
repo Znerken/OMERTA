@@ -1,0 +1,1 @@
+import { GameCard } from '@/components/ui/game-card'; 
